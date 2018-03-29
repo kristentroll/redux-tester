@@ -9,19 +9,25 @@ class Counter extends Component {
     }
 
     handleDecrement(){
-
+        console.log("in decrement");
+        this.setState((prevState)=>{
+            return {count: prevState.count-1};
+        });
     }
 
     handleIncrement(){
-
+        console.log("in increment");
+        this.setState((prevState)=>{
+            return {count: prevState.count+1};
+        });
     }
 
     render() {
         return(
             <div className="Counter-container">
-                <button id="decrement">-</button>
+                <button id="decrement" onClick={this.handleDecrement}>-</button>
                 {this.state.count}
-                <button id="increment">+</button>
+                <button id="increment" onClick={this.handleIncrement}>+</button>
             </div>
         );
     }
